@@ -103,3 +103,6 @@ __test__.py
 
 # DS Store
 .DS_Store
+
+# environment variables
+.env
