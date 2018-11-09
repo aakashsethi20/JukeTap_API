@@ -1,0 +1,101 @@
+{
+	"info": {
+		"_postman_id": "be388a31-7840-b352-0f64-34e6f03692b3",
+		"name": "pomodoro_api_dev",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Register new user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "64a30590-1ab4-494d-a0bc-3bcaf386887b",
+								"exec": [
+									"if (!(environment.isIntegrationTest)) {",
+									"var responseJSON = JSON.parse(responseBody);",
+									"",
+									"tests['Response contains \"user\" property'] = responseJSON.hasOwnProperty('user');",
+									"",
+									"var user = responseJSON.user || {};",
+									"",
+									"tests['User has \"email\" property'] = user.hasOwnProperty('email');",
+									"tests['User has \"username\" property'] = user.hasOwnProperty('username');",
+									"tests['User has first name property'] = user.hasOwnProperty('first_name');",
+									"tests['User has last name property'] = user.hasOwnProperty('last_name');",
+									"tests['User has \"bio\" property'] = user.hasOwnProperty('bio');",
+									"tests['User has \"image\" property'] = user.hasOwnProperty('image');",
+									"tests['User has \"token\" property'] = user.hasOwnProperty('token');",
+									"}",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Requested-With",
+								"value": "XMLHttpRequest",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user\": {\n        \"email\": \"{{EMAIL}}\",\n        \"password\": \"{{PASSWORD}}\",\n        \"username\": \"johnjacob\",\n        \"first_name\": \"{{FIRST_NAME}}\",\n        \"last_name\": \"{{LAST_NAME}}\"\n    }\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/users",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "ce09c0ae-1bb7-4a0f-b897-b20696ff0d37",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "91960c05-722e-4523-9fd3-7e5a04e9c58e",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
