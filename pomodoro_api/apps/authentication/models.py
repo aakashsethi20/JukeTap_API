@@ -1,3 +1,6 @@
+from django.db import models
+
+# Create your models here.
 import jwt
 
 from datetime import datetime, timedelta
@@ -27,13 +30,13 @@ class UserManager(BaseUserManager):
             raise TypeError('Superuser must have a password.')
 
         user = self.create_user(username, email, password, first_name, last_name)
-        user.is_superuser(True)
-        user.is_staff(True)
+        user.is_superuser = True
+        user.is_staff = True
         user.save(using=self._db)
 
         return user
 
-class User(BaseUserManager, PermissionsMixin):
+class User(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(db_index=True, max_length=255, unique=True)
     email = models.EmailField(db_index=True, unique=True)
     first_name = models.CharField(max_length=255)
