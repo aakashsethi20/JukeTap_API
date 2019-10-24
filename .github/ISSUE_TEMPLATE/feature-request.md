@@ -18,3 +18,6 @@ A clear and concise description of any alternative solutions or features you've 
 
 **Additional context**
 Add any other context or screenshots about the feature request here.
+
+## Technical Details ##
+Add the technical details to be followed in this issue. To be added by the assignee of the issue.
