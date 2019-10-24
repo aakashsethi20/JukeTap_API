@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'django_extensions',
+    # 'django_extensions',
     'rest_framework',
 
     'juketap_api.apps.authentication',
