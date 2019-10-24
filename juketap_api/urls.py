@@ -1,4 +1,4 @@
-"""pomodoro_api URL Configuration
+"""juketap_api URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.1/topics/http/urls/
@@ -18,5 +18,5 @@ from django.urls import include, path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('pomodoro_api.apps.authentication.urls', namespace='authentication')),
+    path('api/', include('juketap_api.apps.authentication.urls', namespace='authentication')),
 ]
