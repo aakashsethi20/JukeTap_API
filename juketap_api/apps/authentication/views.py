@@ -7,6 +7,12 @@ from .renderers import UserJSONRenderer
 from .serializers import RegistrationSerializer
 
 class RegistrationAPIView(APIView):
+    """
+    Registration related API endpoints.
+    Permissions will be AllowAny so that any user can access registration
+    endpoints, logged in or not.
+    """
+
     permission_classes = (AllowAny,)
     renderer_classes = (UserJSONRenderer,)
     serializer_class = RegistrationSerializer
