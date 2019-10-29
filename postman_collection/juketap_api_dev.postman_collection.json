@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "be388a31-7840-b352-0f64-34e6f03692b3",
+		"_postman_id": "c35d729c-ee26-4469-94a3-1757ab56c3d3",
 		"name": "juketap_api_dev",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -53,10 +53,10 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"user\": {\n        \"email\": \"{{EMAIL}}\",\n        \"password\": \"{{PASSWORD}}\",\n        \"username\": \"johnjacob\",\n        \"first_name\": \"{{FIRST_NAME}}\",\n        \"last_name\": \"{{LAST_NAME}}\"\n    }\n}"
+							"raw": "{\n    \"user\": {\n        \"email\": \"karunmalik@domain.com\",\n        \"password\": \"rAnd0mP@ssword\",\n        \"username\": \"johnjacob2\",\n        \"first_name\": \"Karun\",\n        \"last_name\": \"Malik\"\n    }\n}"
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/users",
+							"raw": "http://127.0.0.1:8000/api/users/",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -67,13 +67,15 @@
 							"port": "8000",
 							"path": [
 								"api",
-								"users"
+								"users",
+								""
 							]
 						}
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		}
 	],
 	"event": [
@@ -97,5 +99,6 @@
 				]
 			}
 		}
-	]
+	],
+	"protocolProfileBehavior": {}
 }
