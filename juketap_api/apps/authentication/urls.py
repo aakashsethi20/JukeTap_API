@@ -1,8 +1,8 @@
-from django.urls import re_path
+from django.urls import path
 
 from .views import RegistrationAPIView
 
 app_name = 'authentication'
 urlpatterns = [
-    re_path(r'^users/?$', RegistrationAPIView.as_view()),
+    path('users/', RegistrationAPIView.as_view(), name='registration'),
 ]

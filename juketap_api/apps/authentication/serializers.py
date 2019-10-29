@@ -3,7 +3,7 @@ from rest_framework import serializers
 from .models import User
 
 class RegistrationSerializer(serializers.ModelSerializer):
-    """Serializes registration requests and creates a new user."""
+    """ Serializes registration requests and creates a new user. """
 
     password = serializers.CharField(
         min_length=8,
