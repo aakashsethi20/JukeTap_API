@@ -71,6 +71,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     @property
     def token(self):
         """ Dynamic property token generates and returns a unique JWT for this `User`. """
+        
         return self._generate_jwt_token()
 
     def get_full_name(self):

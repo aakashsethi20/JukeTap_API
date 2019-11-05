@@ -27,7 +27,6 @@
 									"tests['User has \"username\" property'] = user.hasOwnProperty('username');",
 									"tests['User has first name property'] = user.hasOwnProperty('first_name');",
 									"tests['User has last name property'] = user.hasOwnProperty('last_name');",
-									"tests['User has \"bio\" property'] = user.hasOwnProperty('bio');",
 									"tests['User has \"image\" property'] = user.hasOwnProperty('image');",
 									"tests['User has \"token\" property'] = user.hasOwnProperty('token');",
 									"}",
@@ -53,24 +52,81 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"user\": {\n        \"email\": \"karunmalik@domain.com\",\n        \"password\": \"rAnd0mP@ssword\",\n        \"username\": \"johnjacob2\",\n        \"first_name\": \"Karun\",\n        \"last_name\": \"Malik\"\n    }\n}"
+							"raw": "{\n    \"user\": {\n        \"email\": \"{{EMAIL}}\",\n        \"password\": \"{{PASSWORD}}\",\n        \"username\": \"{{USERNAME}}\",\n        \"first_name\": \"{{FIRST_NAME}}\",\n        \"last_name\": \"{{LAST_NAME}}\"\n    }\n}"
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/users/",
-							"protocol": "http",
+							"raw": "{{apiUrl}}/users/",
 							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
+								"{{apiUrl}}"
 							],
-							"port": "8000",
 							"path": [
-								"api",
 								"users",
 								""
 							]
 						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c54dad44-c7f8-4b30-8a52-bcd7a10fc954",
+								"exec": [
+									"var responseJSON = JSON.parse(responseBody);",
+									"",
+									"tests['Response contains \"user\" property'] = responseJSON.hasOwnProperty('user');",
+									"",
+									"var user = responseJSON.user || {};",
+									"",
+									"tests['User has \"email\" property'] = user.hasOwnProperty('email');",
+									"tests['User has \"username\" property'] = user.hasOwnProperty('username');",
+									"tests['User has \"image\" property'] = user.hasOwnProperty('image');",
+									"tests['User has \"token\" property'] = user.hasOwnProperty('token');",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Requested-With",
+								"value": "XMLHttpRequest",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user\": {\n        \"email\": \"{{EMAIL}}\",\n        \"password\": \"{{PASSWORD}}\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{apiUrl}}/users/login/",
+							"host": [
+								"{{apiUrl}}"
+							],
+							"path": [
+								"users",
+								"login",
+								""
+							]
+						},
+						"description": "Post request to log a user in."
 					},
 					"response": []
 				}
